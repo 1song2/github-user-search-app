@@ -101,14 +101,10 @@
 		E4C696092722E18500AE0796 /* GithubUserSearchApp */ = {
 			isa = PBXGroup;
 			children = (
-				E4C6960A2722E18500AE0796 /* AppDelegate.swift */,
-				E4C6960C2722E18500AE0796 /* SceneDelegate.swift */,
-				E4C6960E2722E18500AE0796 /* ViewController.swift */,
-				E4C696102722E18500AE0796 /* Main.storyboard */,
-				E4C696162722E18700AE0796 /* Assets.xcassets */,
-				E4C696182722E18700AE0796 /* LaunchScreen.storyboard */,
-				E4C6961B2722E18700AE0796 /* Info.plist */,
-				E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */,
+				E4C6963E272446AC00AE0796 /* Application */,
+				E4C6963F272446C000AE0796 /* Presentation */,
+				E4C696412724473600AE0796 /* Data */,
+				E4C696402724470B00AE0796 /* Resources */,
 			);
 			path = GithubUserSearchApp;
 			sourceTree = "<group>";
@@ -128,6 +124,58 @@
 				E4C696302722E18700AE0796 /* GithubUserSearchAppUITestsLaunchTests.swift */,
 			);
 			path = GithubUserSearchAppUITests;
+			sourceTree = "<group>";
+		};
+		E4C6963E272446AC00AE0796 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E4C6960A2722E18500AE0796 /* AppDelegate.swift */,
+				E4C6960C2722E18500AE0796 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E4C6963F272446C000AE0796 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E4C6960E2722E18500AE0796 /* ViewController.swift */,
+				E4C696102722E18500AE0796 /* Main.storyboard */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E4C696402724470B00AE0796 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4C696162722E18700AE0796 /* Assets.xcassets */,
+				E4C696182722E18700AE0796 /* LaunchScreen.storyboard */,
+				E4C6961B2722E18700AE0796 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E4C696412724473600AE0796 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E4C696422724475200AE0796 /* PersistentStorages */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E4C696422724475200AE0796 /* PersistentStorages */ = {
+			isa = PBXGroup;
+			children = (
+				E4C696432724476E00AE0796 /* CoreDataStorage */,
+			);
+			path = PersistentStorages;
+			sourceTree = "<group>";
+		};
+		E4C696432724476E00AE0796 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */,
+			);
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
