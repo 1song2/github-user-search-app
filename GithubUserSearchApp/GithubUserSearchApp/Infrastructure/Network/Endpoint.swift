@@ -19,17 +19,20 @@ class Endpoint<R>: ResponseRequestable {
     let method: HTTPMethodType
     let headerParameters: [String: String]
     let queryParametersEncodable: Encodable?
+    let responseDecoder: ResponseDecoder
     
     init(path: String,
          isFullPath: Bool = false,
          method: HTTPMethodType,
          headerParameters: [String: String] = [:],
-         queryParametersEncodable: Encodable? = nil) {
+         queryParametersEncodable: Encodable? = nil,
+         responseDecoder: ResponseDecoder = JSONResponseDecoder()) {
         self.path = path
         self.isFullPath = isFullPath
         self.method = method
         self.headerParameters = headerParameters
         self.queryParametersEncodable = queryParametersEncodable
+        self.responseDecoder = responseDecoder
     }
 }
 
@@ -45,6 +48,8 @@ protocol Requestable {
 
 protocol ResponseRequestable: Requestable {
     associatedtype Response
+    
+    var responseDecoder: ResponseDecoder { get }
 }
 
 enum RequestGenerationError: Error {
