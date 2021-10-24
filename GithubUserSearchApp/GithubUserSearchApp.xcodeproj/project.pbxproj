@@ -493,7 +493,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5M27T5LV4H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubUserSearchApp/Info.plist;
+				INFOPLIST_FILE = GithubUserSearchApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -522,7 +522,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5M27T5LV4H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubUserSearchApp/Info.plist;
+				INFOPLIST_FILE = GithubUserSearchApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
