@@ -133,11 +133,7 @@
 		E4C696232722E18700AE0796 /* GithubUserSearchAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				E4C696892725517700AE0796 /* EndpointMock.swift */,
-				E4C696852725514F00AE0796 /* NetworkConfigurableMock.swift */,
-				E4C696872725515E00AE0796 /* NetworkSessionManagerMock.swift */,
-				E4C6967F27254FB200AE0796 /* NetworkServiceTests.swift */,
-				E4C6968B27255B7000AE0796 /* DataTransferServiceTests.swift */,
+				E4C6968F27256A0E00AE0796 /* Infrastructure */,
 			);
 			path = GithubUserSearchAppTests;
 			sourceTree = "<group>";
@@ -218,6 +214,34 @@
 			isa = PBXGroup;
 			children = (
 				E4C696752725405500AE0796 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		E4C6968D272569E400AE0796 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E4C696892725517700AE0796 /* EndpointMock.swift */,
+				E4C696852725514F00AE0796 /* NetworkConfigurableMock.swift */,
+				E4C696872725515E00AE0796 /* NetworkSessionManagerMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		E4C6968E272569FD00AE0796 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E4C6968D272569E400AE0796 /* Mocks */,
+				E4C6967F27254FB200AE0796 /* NetworkServiceTests.swift */,
+				E4C6968B27255B7000AE0796 /* DataTransferServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E4C6968F27256A0E00AE0796 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				E4C6968E272569FD00AE0796 /* Network */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
