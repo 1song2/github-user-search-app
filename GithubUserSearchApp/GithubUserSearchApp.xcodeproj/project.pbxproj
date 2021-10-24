@@ -28,6 +28,7 @@
 		E4C696862725514F00AE0796 /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696852725514F00AE0796 /* NetworkConfigurableMock.swift */; };
 		E4C696882725515E00AE0796 /* NetworkSessionManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696872725515E00AE0796 /* NetworkSessionManagerMock.swift */; };
 		E4C6968A2725517700AE0796 /* EndpointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696892725517700AE0796 /* EndpointMock.swift */; };
+		E4C6968C27255B7000AE0796 /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6968B27255B7000AE0796 /* DataTransferServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		E4C696852725514F00AE0796 /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
 		E4C696872725515E00AE0796 /* NetworkSessionManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerMock.swift; sourceTree = "<group>"; };
 		E4C696892725517700AE0796 /* EndpointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointMock.swift; sourceTree = "<group>"; };
+		E4C6968B27255B7000AE0796 /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				E4C696852725514F00AE0796 /* NetworkConfigurableMock.swift */,
 				E4C696872725515E00AE0796 /* NetworkSessionManagerMock.swift */,
 				E4C6967F27254FB200AE0796 /* NetworkServiceTests.swift */,
+				E4C6968B27255B7000AE0796 /* DataTransferServiceTests.swift */,
 			);
 			path = GithubUserSearchAppTests;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			files = (
 				E4C6968A2725517700AE0796 /* EndpointMock.swift in Sources */,
 				E4C696882725515E00AE0796 /* NetworkSessionManagerMock.swift in Sources */,
+				E4C6968C27255B7000AE0796 /* DataTransferServiceTests.swift in Sources */,
 				E4C6968127254FDD00AE0796 /* Endpoint.swift in Sources */,
 				E4C6968027254FB200AE0796 /* NetworkServiceTests.swift in Sources */,
 				E4C6968327254FF100AE0796 /* NetworkService.swift in Sources */,
