@@ -14,13 +14,20 @@
 		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
 		E4C696172722E18700AE0796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C696162722E18700AE0796 /* Assets.xcassets */; };
 		E4C6961A2722E18700AE0796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C696182722E18700AE0796 /* LaunchScreen.storyboard */; };
-		E4C696252722E18700AE0796 /* GithubUserSearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696242722E18700AE0796 /* GithubUserSearchAppTests.swift */; };
 		E4C6962F2722E18700AE0796 /* GithubUserSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6962E2722E18700AE0796 /* GithubUserSearchAppUITests.swift */; };
 		E4C696312722E18700AE0796 /* GithubUserSearchAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696302722E18700AE0796 /* GithubUserSearchAppUITestsLaunchTests.swift */; };
 		E4C696742725404500AE0796 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696732725404500AE0796 /* NetworkConfig.swift */; };
 		E4C69678272541B900AE0796 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C69677272541B900AE0796 /* Endpoint.swift */; };
 		E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C69679272549A900AE0796 /* NetworkService.swift */; };
 		E4C6967C27254B9700AE0796 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6967B27254B9700AE0796 /* DataTransferService.swift */; };
+		E4C6968027254FB200AE0796 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6967F27254FB200AE0796 /* NetworkServiceTests.swift */; };
+		E4C6968127254FDD00AE0796 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C69677272541B900AE0796 /* Endpoint.swift */; };
+		E4C6968227254FEB00AE0796 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696732725404500AE0796 /* NetworkConfig.swift */; };
+		E4C6968327254FF100AE0796 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C69679272549A900AE0796 /* NetworkService.swift */; };
+		E4C6968427254FF500AE0796 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6967B27254B9700AE0796 /* DataTransferService.swift */; };
+		E4C696862725514F00AE0796 /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696852725514F00AE0796 /* NetworkConfigurableMock.swift */; };
+		E4C696882725515E00AE0796 /* NetworkSessionManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696872725515E00AE0796 /* NetworkSessionManagerMock.swift */; };
+		E4C6968A2725517700AE0796 /* EndpointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696892725517700AE0796 /* EndpointMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +58,6 @@
 		E4C696192722E18700AE0796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4C6961B2722E18700AE0796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4C696202722E18700AE0796 /* GithubUserSearchAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubUserSearchAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4C696242722E18700AE0796 /* GithubUserSearchAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchAppTests.swift; sourceTree = "<group>"; };
 		E4C6962A2722E18700AE0796 /* GithubUserSearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubUserSearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6962E2722E18700AE0796 /* GithubUserSearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchAppUITests.swift; sourceTree = "<group>"; };
 		E4C696302722E18700AE0796 /* GithubUserSearchAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -59,6 +65,10 @@
 		E4C69677272541B900AE0796 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E4C69679272549A900AE0796 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E4C6967B27254B9700AE0796 /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
+		E4C6967F27254FB200AE0796 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		E4C696852725514F00AE0796 /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
+		E4C696872725515E00AE0796 /* NetworkSessionManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerMock.swift; sourceTree = "<group>"; };
+		E4C696892725517700AE0796 /* EndpointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +131,10 @@
 		E4C696232722E18700AE0796 /* GithubUserSearchAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				E4C696242722E18700AE0796 /* GithubUserSearchAppTests.swift */,
+				E4C696892725517700AE0796 /* EndpointMock.swift */,
+				E4C696852725514F00AE0796 /* NetworkConfigurableMock.swift */,
+				E4C696872725515E00AE0796 /* NetworkSessionManagerMock.swift */,
+				E4C6967F27254FB200AE0796 /* NetworkServiceTests.swift */,
 			);
 			path = GithubUserSearchAppTests;
 			sourceTree = "<group>";
@@ -277,6 +290,7 @@
 					};
 					E4C6961F2722E18700AE0796 = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 						TestTargetID = E4C696062722E18500AE0796;
 					};
 					E4C696292722E18700AE0796 = {
@@ -352,7 +366,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4C696252722E18700AE0796 /* GithubUserSearchAppTests.swift in Sources */,
+				E4C6968A2725517700AE0796 /* EndpointMock.swift in Sources */,
+				E4C696882725515E00AE0796 /* NetworkSessionManagerMock.swift in Sources */,
+				E4C6968127254FDD00AE0796 /* Endpoint.swift in Sources */,
+				E4C6968027254FB200AE0796 /* NetworkServiceTests.swift in Sources */,
+				E4C6968327254FF100AE0796 /* NetworkService.swift in Sources */,
+				E4C696862725514F00AE0796 /* NetworkConfigurableMock.swift in Sources */,
+				E4C6968227254FEB00AE0796 /* NetworkConfig.swift in Sources */,
+				E4C6968427254FF500AE0796 /* DataTransferService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +600,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5M27T5LV4H;
@@ -593,6 +615,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.song.GithubUserSearchAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GithubUserSearchApp.app/GithubUserSearchApp";
@@ -604,6 +627,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5M27T5LV4H;
