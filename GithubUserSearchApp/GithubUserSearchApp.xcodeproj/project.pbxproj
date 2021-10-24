@@ -17,6 +17,10 @@
 		E4C696252722E18700AE0796 /* GithubUserSearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696242722E18700AE0796 /* GithubUserSearchAppTests.swift */; };
 		E4C6962F2722E18700AE0796 /* GithubUserSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6962E2722E18700AE0796 /* GithubUserSearchAppUITests.swift */; };
 		E4C696312722E18700AE0796 /* GithubUserSearchAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696302722E18700AE0796 /* GithubUserSearchAppUITestsLaunchTests.swift */; };
+		E4C696742725404500AE0796 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C696732725404500AE0796 /* NetworkConfig.swift */; };
+		E4C69678272541B900AE0796 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C69677272541B900AE0796 /* Endpoint.swift */; };
+		E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C69679272549A900AE0796 /* NetworkService.swift */; };
+		E4C6967C27254B9700AE0796 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6967B27254B9700AE0796 /* DataTransferService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		E4C6962A2722E18700AE0796 /* GithubUserSearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubUserSearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6962E2722E18700AE0796 /* GithubUserSearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchAppUITests.swift; sourceTree = "<group>"; };
 		E4C696302722E18700AE0796 /* GithubUserSearchAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E4C696732725404500AE0796 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		E4C69677272541B900AE0796 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		E4C69679272549A900AE0796 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E4C6967B27254B9700AE0796 /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,7 @@
 				E4C6963E272446AC00AE0796 /* Application */,
 				E4C6963F272446C000AE0796 /* Presentation */,
 				E4C696412724473600AE0796 /* Data */,
+				E4C696762725406000AE0796 /* Infrastructure */,
 				E4C696402724470B00AE0796 /* Resources */,
 			);
 			path = GithubUserSearchApp;
@@ -176,6 +185,25 @@
 				E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */,
 			);
 			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		E4C696752725405500AE0796 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E4C6967B27254B9700AE0796 /* DataTransferService.swift */,
+				E4C69679272549A900AE0796 /* NetworkService.swift */,
+				E4C69677272541B900AE0796 /* Endpoint.swift */,
+				E4C696732725404500AE0796 /* NetworkConfig.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E4C696762725406000AE0796 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				E4C696752725405500AE0796 /* Network */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,9 +338,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4C6960F2722E18500AE0796 /* ViewController.swift in Sources */,
+				E4C696742725404500AE0796 /* NetworkConfig.swift in Sources */,
 				E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */,
 				E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */,
+				E4C6967C27254B9700AE0796 /* DataTransferService.swift in Sources */,
+				E4C69678272541B900AE0796 /* Endpoint.swift in Sources */,
 				E4C6960D2722E18500AE0796 /* SceneDelegate.swift in Sources */,
+				E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +525,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5M27T5LV4H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubUserSearchApp/Info.plist;
+				INFOPLIST_FILE = GithubUserSearchApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -522,7 +554,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5M27T5LV4H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubUserSearchApp/Info.plist;
+				INFOPLIST_FILE = GithubUserSearchApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
