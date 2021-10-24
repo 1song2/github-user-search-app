@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960A2722E18500AE0796 /* AppDelegate.swift */; };
-		E4C6960D2722E18500AE0796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960C2722E18500AE0796 /* SceneDelegate.swift */; };
 		E4C6960F2722E18500AE0796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* ViewController.swift */; };
 		E4C696122722E18500AE0796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C696102722E18500AE0796 /* Main.storyboard */; };
 		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
@@ -51,7 +50,6 @@
 /* Begin PBXFileReference section */
 		E4C696072722E18500AE0796 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6960A2722E18500AE0796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E4C6960C2722E18500AE0796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E4C6960E2722E18500AE0796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E4C696112722E18500AE0796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4C696142722E18500AE0796 /* GithubUserSearchApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubUserSearchApp.xcdatamodel; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				E4C6960A2722E18500AE0796 /* AppDelegate.swift */,
-				E4C6960C2722E18500AE0796 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -384,7 +381,6 @@
 				E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */,
 				E4C6967C27254B9700AE0796 /* DataTransferService.swift in Sources */,
 				E4C69678272541B900AE0796 /* Endpoint.swift in Sources */,
-				E4C6960D2722E18500AE0796 /* SceneDelegate.swift in Sources */,
 				E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
