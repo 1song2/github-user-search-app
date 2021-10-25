@@ -12,6 +12,7 @@
 		E42E5F52272661F900857B72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F51272661F900857B72 /* User.swift */; };
 		E42E5F612726660100857B72 /* UsersRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F602726660100857B72 /* UsersRequestDTO.swift */; };
 		E42E5F652726684300857B72 /* UsersResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F642726684300857B72 /* UsersResponseDTO.swift */; };
+		E42E5F6727266AFF00857B72 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6627266AFF00857B72 /* APIEndpoints.swift */; };
 		E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960A2722E18500AE0796 /* AppDelegate.swift */; };
 		E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* UserViewController.swift */; };
 		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
@@ -57,6 +58,7 @@
 		E42E5F51272661F900857B72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E42E5F602726660100857B72 /* UsersRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequestDTO.swift; sourceTree = "<group>"; };
 		E42E5F642726684300857B72 /* UsersResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponseDTO.swift; sourceTree = "<group>"; };
+		E42E5F6627266AFF00857B72 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		E4C696072722E18500AE0796 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6960A2722E18500AE0796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4C6960E2722E18500AE0796 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		E42E5F5C272665A400857B72 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E42E5F6627266AFF00857B72 /* APIEndpoints.swift */,
 				E42E5F5F272665CC00857B72 /* DataMapping */,
 			);
 			path = Network;
@@ -422,6 +425,7 @@
 				E42E5F4F2726565C00857B72 /* UserCell.swift in Sources */,
 				E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */,
 				E4C696742725404500AE0796 /* NetworkConfig.swift in Sources */,
+				E42E5F6727266AFF00857B72 /* APIEndpoints.swift in Sources */,
 				E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */,
 				E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */,
 				E42E5F52272661F900857B72 /* User.swift in Sources */,
