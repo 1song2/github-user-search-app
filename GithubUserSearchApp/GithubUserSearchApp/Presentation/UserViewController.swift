@@ -25,6 +25,8 @@ class UserViewController: UITableViewController {
         } else {
             view.backgroundColor = .white
         }
+        tableView.register(UserCell.nib(), forCellReuseIdentifier: UserCell.reuseIdentifier)
+        tableView.rowHeight = UserCell.height
         setupSearchController()
     }
     
@@ -36,5 +38,15 @@ class UserViewController: UITableViewController {
             NSLocalizedString("API", comment: ""),
             NSLocalizedString("Local", comment: "")
         ]
+    }
+}
+
+//MARK: - UITableViewDataSource
+extension UserViewController {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseIdentifier, for: indexPath) as? UserCell else {
+            return UITableViewCell()
+        }
+        return cell
     }
 }
