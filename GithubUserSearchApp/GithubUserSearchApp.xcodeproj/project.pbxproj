@@ -13,6 +13,9 @@
 		E42E5F612726660100857B72 /* UsersRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F602726660100857B72 /* UsersRequestDTO.swift */; };
 		E42E5F652726684300857B72 /* UsersResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F642726684300857B72 /* UsersResponseDTO.swift */; };
 		E42E5F6727266AFF00857B72 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6627266AFF00857B72 /* APIEndpoints.swift */; };
+		E42E5F6927266C6800857B72 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6827266C6800857B72 /* UsersRepository.swift */; };
+		E42E5F6B27266D4700857B72 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6A27266D4700857B72 /* Cancellable.swift */; };
+		E42E5F6D27266DAF00857B72 /* AvatarImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6C27266DAF00857B72 /* AvatarImagesRepository.swift */; };
 		E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960A2722E18500AE0796 /* AppDelegate.swift */; };
 		E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* UserViewController.swift */; };
 		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
@@ -59,6 +62,9 @@
 		E42E5F602726660100857B72 /* UsersRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequestDTO.swift; sourceTree = "<group>"; };
 		E42E5F642726684300857B72 /* UsersResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponseDTO.swift; sourceTree = "<group>"; };
 		E42E5F6627266AFF00857B72 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		E42E5F6827266C6800857B72 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
+		E42E5F6A27266D4700857B72 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
+		E42E5F6C27266DAF00857B72 /* AvatarImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImagesRepository.swift; sourceTree = "<group>"; };
 		E4C696072722E18500AE0796 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6960A2722E18500AE0796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4C6960E2722E18500AE0796 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				E42E5F53272661FE00857B72 /* Entities */,
+				E42E5F6F27266DE300857B72 /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -138,6 +145,23 @@
 				E42E5F642726684300857B72 /* UsersResponseDTO.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		E42E5F6E27266DD800857B72 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E42E5F6827266C6800857B72 /* UsersRepository.swift */,
+				E42E5F6C27266DAF00857B72 /* AvatarImagesRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E42E5F6F27266DE300857B72 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				E42E5F6E27266DD800857B72 /* Repositories */,
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 		E4C695FE2722E18500AE0796 = {
@@ -169,6 +193,7 @@
 				E4C696412724473600AE0796 /* Data */,
 				E4C696762725406000AE0796 /* Infrastructure */,
 				E4C696402724470B00AE0796 /* Resources */,
+				E42E5F6A27266D4700857B72 /* Cancellable.swift */,
 			);
 			path = GithubUserSearchApp;
 			sourceTree = "<group>";
@@ -422,14 +447,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42E5F6B27266D4700857B72 /* Cancellable.swift in Sources */,
 				E42E5F4F2726565C00857B72 /* UserCell.swift in Sources */,
 				E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */,
+				E42E5F6D27266DAF00857B72 /* AvatarImagesRepository.swift in Sources */,
 				E4C696742725404500AE0796 /* NetworkConfig.swift in Sources */,
 				E42E5F6727266AFF00857B72 /* APIEndpoints.swift in Sources */,
 				E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */,
 				E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */,
 				E42E5F52272661F900857B72 /* User.swift in Sources */,
 				E4C6967C27254B9700AE0796 /* DataTransferService.swift in Sources */,
+				E42E5F6927266C6800857B72 /* UsersRepository.swift in Sources */,
 				E4C69678272541B900AE0796 /* Endpoint.swift in Sources */,
 				E42E5F652726684300857B72 /* UsersResponseDTO.swift in Sources */,
 				E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */,
