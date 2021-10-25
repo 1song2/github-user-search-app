@@ -188,6 +188,24 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		E42E5F7B2726776700857B72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4C6960E2722E18500AE0796 /* UserViewController.swift */,
+				E42E5F7C2726777500857B72 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E42E5F7C2726777500857B72 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E42E5F4D2726565C00857B72 /* UserCell.swift */,
+				E42E5F4E2726565C00857B72 /* UserCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		E4C695FE2722E18500AE0796 = {
 			isa = PBXGroup;
 			children = (
@@ -250,9 +268,7 @@
 		E4C6963F272446C000AE0796 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E4C6960E2722E18500AE0796 /* UserViewController.swift */,
-				E42E5F4D2726565C00857B72 /* UserCell.swift */,
-				E42E5F4E2726565C00857B72 /* UserCell.xib */,
+				E42E5F7B2726776700857B72 /* View */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
