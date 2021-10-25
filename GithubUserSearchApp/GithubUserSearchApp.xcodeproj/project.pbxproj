@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960A2722E18500AE0796 /* AppDelegate.swift */; };
-		E4C6960F2722E18500AE0796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* ViewController.swift */; };
+		E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* UserViewController.swift */; };
 		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
 		E4C696172722E18700AE0796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C696162722E18700AE0796 /* Assets.xcassets */; };
 		E4C6961A2722E18700AE0796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C696182722E18700AE0796 /* LaunchScreen.storyboard */; };
@@ -49,7 +49,7 @@
 /* Begin PBXFileReference section */
 		E4C696072722E18500AE0796 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6960A2722E18500AE0796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E4C6960E2722E18500AE0796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E4C6960E2722E18500AE0796 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		E4C696142722E18500AE0796 /* GithubUserSearchApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubUserSearchApp.xcdatamodel; sourceTree = "<group>"; };
 		E4C696162722E18700AE0796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4C696192722E18700AE0796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		E4C6963F272446C000AE0796 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E4C6960E2722E18500AE0796 /* ViewController.swift */,
+				E4C6960E2722E18500AE0796 /* UserViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4C6960F2722E18500AE0796 /* ViewController.swift in Sources */,
+				E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */,
 				E4C696742725404500AE0796 /* NetworkConfig.swift in Sources */,
 				E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */,
 				E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */,

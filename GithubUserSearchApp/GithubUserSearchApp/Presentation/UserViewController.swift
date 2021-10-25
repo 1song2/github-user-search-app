@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserViewController: UITableViewController {
     private var searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
