@@ -11,7 +11,7 @@ struct User {
     let id: Int
     let username: String
     let avatarUrl: String
-    let isStarred: Bool
+    let isStarred: Bool = false
 }
 
 struct Users {
