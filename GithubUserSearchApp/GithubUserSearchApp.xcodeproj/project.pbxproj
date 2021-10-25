@@ -16,6 +16,8 @@
 		E42E5F6927266C6800857B72 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6827266C6800857B72 /* UsersRepository.swift */; };
 		E42E5F6B27266D4700857B72 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6A27266D4700857B72 /* Cancellable.swift */; };
 		E42E5F6D27266DAF00857B72 /* AvatarImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6C27266DAF00857B72 /* AvatarImagesRepository.swift */; };
+		E42E5F7127266F4500857B72 /* DefaultUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F7027266F4500857B72 /* DefaultUsersRepository.swift */; };
+		E42E5F742726732500857B72 /* DefaultAvatarImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F732726732500857B72 /* DefaultAvatarImagesRepository.swift */; };
 		E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960A2722E18500AE0796 /* AppDelegate.swift */; };
 		E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* UserViewController.swift */; };
 		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
@@ -65,6 +67,8 @@
 		E42E5F6827266C6800857B72 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		E42E5F6A27266D4700857B72 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
 		E42E5F6C27266DAF00857B72 /* AvatarImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImagesRepository.swift; sourceTree = "<group>"; };
+		E42E5F7027266F4500857B72 /* DefaultUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUsersRepository.swift; sourceTree = "<group>"; };
+		E42E5F732726732500857B72 /* DefaultAvatarImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAvatarImagesRepository.swift; sourceTree = "<group>"; };
 		E4C696072722E18500AE0796 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6960A2722E18500AE0796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4C6960E2722E18500AE0796 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +168,15 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
+		E42E5F7227266F4D00857B72 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E42E5F7027266F4500857B72 /* DefaultUsersRepository.swift */,
+				E42E5F732726732500857B72 /* DefaultAvatarImagesRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		E4C695FE2722E18500AE0796 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +259,7 @@
 		E4C696412724473600AE0796 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E42E5F7227266F4D00857B72 /* Repositories */,
 				E42E5F5C272665A400857B72 /* Network */,
 				E4C696422724475200AE0796 /* PersistentStorages */,
 			);
@@ -461,6 +475,8 @@
 				E4C69678272541B900AE0796 /* Endpoint.swift in Sources */,
 				E42E5F652726684300857B72 /* UsersResponseDTO.swift in Sources */,
 				E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */,
+				E42E5F7127266F4500857B72 /* DefaultUsersRepository.swift in Sources */,
+				E42E5F742726732500857B72 /* DefaultAvatarImagesRepository.swift in Sources */,
 				E42E5F612726660100857B72 /* UsersRequestDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,6 @@
 import Foundation
 
 protocol UsersRepository {
-    @discardableResult
-    func fetchUsers(completion: @escaping (Result<Users, Error>) -> Void) -> Cancellable?
+    func fetchUsers(query: String,
+                    completion: @escaping (Result<Users, Error>) -> Void)
 }

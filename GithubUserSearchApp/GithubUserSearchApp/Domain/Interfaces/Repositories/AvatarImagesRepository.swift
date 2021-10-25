@@ -9,5 +9,5 @@ import Foundation
 
 protocol AvatarImagesRepository {
     func fetchImage(with imagePath: String,
-                    completion: @escaping (Result<Data, Error>) -> Void) -> Cancellable?
+                    completion: @escaping (Result<Data, Error>) -> Void)
 }
