@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol UsersRepository {
-    func fetchUsers(query: String) -> Observable<Users>
+    func fetchUsers(query: String, page: Int) -> Observable<UsersPage>
 }

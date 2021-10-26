@@ -14,7 +14,7 @@ struct User {
     let isStarred: Bool = false
 }
 
-struct Users {
+struct UsersPage {
     let totalNumberOfResults: Int
     let users: [User]
 }

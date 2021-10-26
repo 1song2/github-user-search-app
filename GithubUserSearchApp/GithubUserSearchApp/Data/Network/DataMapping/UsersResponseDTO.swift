@@ -34,7 +34,7 @@ extension UsersResponseDTO {
 // MARK: - Mappings to Domain
 
 extension UsersResponseDTO {
-    func toDomain() -> Users {
+    func toDomain() -> UsersPage {
         return .init(totalNumberOfResults: totalNumberOfResults,
                      users: users.map { $0.toDomain() })
     }

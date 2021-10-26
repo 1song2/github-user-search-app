@@ -17,7 +17,7 @@ final class DefaultUsersRepository {
 }
 
 extension DefaultUsersRepository: UsersRepository {
-    func fetchUsers(query: String) -> Observable<Users> {
+    func fetchUsers(query: String, page: Int) -> Observable<UsersPage> {
         return Observable.create { [weak self] emitter in
             let requestDTO = UsersRequestDTO(q: query)
             let endpoint = APIEndpoints.getUsers(with: requestDTO)
