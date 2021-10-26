@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class DefaultUsersRepository {
     private let dataTransferService: DataTransferService
@@ -16,17 +17,20 @@ final class DefaultUsersRepository {
 }
 
 extension DefaultUsersRepository: UsersRepository {
-    func fetchUsers(query: String,
-                    completion: @escaping (Result<Users, Error>) -> Void) {
-        let requestDTO = UsersRequestDTO(q: query)
-        let endpoint = APIEndpoints.getUsers(with: requestDTO)
-        dataTransferService.request(with: endpoint) { result in
-            switch result {
-            case .success(let responseDTO):
-                completion(.success(responseDTO.toDomain()))
-            case .failure(let error):
-                completion(.failure(error))
+    func fetchUsers(query: String) -> Observable<Users> {
+        return Observable.create { [weak self] emitter in
+            let requestDTO = UsersRequestDTO(q: query)
+            let endpoint = APIEndpoints.getUsers(with: requestDTO)
+            self?.dataTransferService.request(with: endpoint) { result in
+                switch result {
+                case .success(let responseDTO):
+                    emitter.onNext(responseDTO.toDomain())
+                    emitter.onCompleted()
+                case .failure(let error):
+                    emitter.onError(error)
+                }
             }
+            return Disposables.create()
         }
     }
 }

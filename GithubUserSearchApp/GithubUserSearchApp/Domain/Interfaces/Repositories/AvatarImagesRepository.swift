@@ -6,8 +6,8 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol AvatarImagesRepository {
-    func fetchImage(with imagePath: String,
-                    completion: @escaping (Result<Data, Error>) -> Void)
+    func fetchImage(with imagePath: String) -> Observable<Data>
 }

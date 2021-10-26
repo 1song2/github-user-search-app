@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class DefaultAvatarImagesRepository {
     private let dataTransferService: DataTransferService
@@ -16,11 +17,20 @@ final class DefaultAvatarImagesRepository {
 }
 
 extension DefaultAvatarImagesRepository: AvatarImagesRepository {
-    func fetchImage(with imagePath: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        let endpoint = APIEndpoints.getUserAvatar(path: imagePath)
-        dataTransferService.request(with: endpoint) { result in
-            let result = result.mapError { $0 as Error }
-            completion(result)
+    func fetchImage(with imagePath: String) -> Observable<Data> {
+        return Observable.create { [weak self] emitter in
+            let endpoint = APIEndpoints.getUserAvatar(path: imagePath)
+            self?.dataTransferService.request(with: endpoint) { result in
+                let result = result.mapError { $0 as Error }
+                switch result {
+                case .success(let data):
+                    emitter.onNext(data)
+                    emitter.onCompleted()
+                case .failure(let error):
+                    emitter.onError(error)
+                }
+            }
+            return Disposables.create()
         }
     }
 }
