@@ -22,6 +22,7 @@
 		E42E5F7127266F4500857B72 /* DefaultUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F7027266F4500857B72 /* DefaultUsersRepository.swift */; };
 		E42E5F742726732500857B72 /* DefaultAvatarImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F732726732500857B72 /* DefaultAvatarImagesRepository.swift */; };
 		E42E5F762726758800857B72 /* SearchUsersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F752726758800857B72 /* SearchUsersUseCase.swift */; };
+		E42E5F862727CA0E00857B72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F852727CA0E00857B72 /* UserViewModel.swift */; };
 		E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960A2722E18500AE0796 /* AppDelegate.swift */; };
 		E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* UserViewController.swift */; };
 		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
@@ -83,6 +84,7 @@
 		E42E5F7027266F4500857B72 /* DefaultUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUsersRepository.swift; sourceTree = "<group>"; };
 		E42E5F732726732500857B72 /* DefaultAvatarImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAvatarImagesRepository.swift; sourceTree = "<group>"; };
 		E42E5F752726758800857B72 /* SearchUsersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUsersUseCase.swift; sourceTree = "<group>"; };
+		E42E5F852727CA0E00857B72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E4C696072722E18500AE0796 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6960A2722E18500AE0796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4C6960E2722E18500AE0796 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +155,6 @@
 				5229597F394265E397E0DAA9 /* Pods-GithubUserSearchAppTests.debug.xcconfig */,
 				1725D235CE5D55272C49FC1A /* Pods-GithubUserSearchAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,6 +246,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		E42E5F872727CA2E00857B72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E42E5F852727CA0E00857B72 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E4C695FE2722E18500AE0796 = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +318,7 @@
 		E4C6963F272446C000AE0796 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E42E5F872727CA2E00857B72 /* ViewModel */,
 				E42E5F7B2726776700857B72 /* View */,
 			);
 			path = Presentation;
@@ -650,6 +660,7 @@
 				E4C6967C27254B9700AE0796 /* DataTransferService.swift in Sources */,
 				E42E5F6927266C6800857B72 /* UsersRepository.swift in Sources */,
 				E4C69678272541B900AE0796 /* Endpoint.swift in Sources */,
+				E42E5F862727CA0E00857B72 /* UserViewModel.swift in Sources */,
 				E42E5F652726684300857B72 /* UsersResponseDTO.swift in Sources */,
 				E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */,
 				E42E5F7127266F4500857B72 /* DefaultUsersRepository.swift in Sources */,
