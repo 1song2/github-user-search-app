@@ -70,6 +70,37 @@ extension DefaultDataTransferService: DataTransferService {
         }
     }
     
+    private func parseLinks(_ links: String) throws -> [String: String] {
+        let parseLinksPattern = "\\s*,?\\s*<([^\\>]*)>\\s*;\\s*rel=\"([^\"]*)\""
+        let linksRegex = try! NSRegularExpression(pattern: parseLinksPattern, options: [.allowCommentsAndWhitespace])
+        let length = (links as NSString).length
+        let matches = linksRegex.matches(in: links,
+                                         options: NSRegularExpression.MatchingOptions(),
+                                         range: NSRange(location: 0, length: length))
+        var result: [String: String] = [:]
+
+        for m in matches {
+            let matches = (1..<m.numberOfRanges).map { rangeIndex -> String in
+                let range = m.range(at: rangeIndex)
+                let startIndex = links.index(links.startIndex, offsetBy: range.location)
+                let endIndex = links.index(links.startIndex, offsetBy: range.location + range.length)
+                return String(links[startIndex ..< endIndex])
+            }
+            if matches.count != 2 { throw DataTransferError.noResponse }
+            result[matches[1]] = matches[0]
+        }
+        return result
+    }
+    
+    private func parseNextURL(_ httpResponse: HTTPURLResponse) throws -> String? {
+        guard let serializedLinks = httpResponse.allHeaderFields["Link"] as? String else {
+            return nil
+        }
+        let links = try parseLinks(serializedLinks)
+        guard let nextPageURL = links["next"] else { return nil }
+        return nextPageURL
+    }
+    
     private func resolve(networkError error: NetworkError) -> DataTransferError {
         let resolvedError = self.errorResolver.resolve(error: error)
         return resolvedError is NetworkError ? .networkFailure(error) : .resolvedNetworkFailure(resolvedError)
