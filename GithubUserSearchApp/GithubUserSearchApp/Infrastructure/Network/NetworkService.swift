@@ -107,6 +107,7 @@ class DefaultNetworkSessionManager: NetworkSessionManager {
 
 extension NetworkError {
     var isNotFoundError: Bool { return hasStatusCode(404) }
+    var isForbiddenError: Bool { return hasStatusCode(403) }
     
     func hasStatusCode(_ codeError: Int) -> Bool {
         switch self {
