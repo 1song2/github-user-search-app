@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol SearchUsersUseCase {
-    func execute(requestValue: SearchMoviesUseCaseRequestValue) -> Observable<UsersPage>
+    func execute(requestValue: SearchMoviesUseCaseRequestValue) -> Observable<(UsersPage, String?)>
 }
 
 final class DefaultSearchUsersUseCase: SearchUsersUseCase {
@@ -19,12 +19,12 @@ final class DefaultSearchUsersUseCase: SearchUsersUseCase {
         self.usersRepository = usersRepository
     }
     
-    func execute(requestValue: SearchMoviesUseCaseRequestValue) -> Observable<UsersPage> {
+    func execute(requestValue: SearchMoviesUseCaseRequestValue) -> Observable<(UsersPage, String?)> {
         return usersRepository.fetchUsers(query: requestValue.query, page: requestValue.page)
     }
 }
 
 struct SearchMoviesUseCaseRequestValue {
     let query: String
-    let page: Int
+    let page: String
 }

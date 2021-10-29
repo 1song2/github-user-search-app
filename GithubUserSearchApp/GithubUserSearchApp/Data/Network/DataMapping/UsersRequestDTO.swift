@@ -9,5 +9,5 @@ import Foundation
 
 struct UsersRequestDTO: Encodable {
     let q: String
-    let page: Int
+    let page: String
 }

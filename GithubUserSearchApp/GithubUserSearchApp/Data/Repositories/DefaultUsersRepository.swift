@@ -17,14 +17,14 @@ final class DefaultUsersRepository {
 }
 
 extension DefaultUsersRepository: UsersRepository {
-    func fetchUsers(query: String, page: Int) -> Observable<UsersPage> {
+    func fetchUsers(query: String, page: String) -> Observable<(UsersPage, String?)> {
         return Observable.create { [weak self] emitter in
             let requestDTO = UsersRequestDTO(q: query, page: page)
             let endpoint = APIEndpoints.getUsers(with: requestDTO)
             self?.dataTransferService.request(with: endpoint) { result in
                 switch result {
-                case .success(let responseDTO):
-                    emitter.onNext(responseDTO.toDomain())
+                case .success(let pair):
+                    emitter.onNext((pair.0.toDomain(), pair.1))
                     emitter.onCompleted()
                 case .failure(let error):
                     emitter.onError(error)

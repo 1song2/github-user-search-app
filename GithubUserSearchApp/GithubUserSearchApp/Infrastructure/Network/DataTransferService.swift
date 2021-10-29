@@ -15,7 +15,7 @@ enum DataTransferError: Error {
 }
 
 protocol DataTransferService {
-    typealias CompletionHandler<T> = (Result<T, DataTransferError>) -> Void
+    typealias CompletionHandler<T> = (Result<(T, String?), DataTransferError>) -> Void
     
     @discardableResult
     func request<T: Decodable, E: ResponseRequestable>(with endpoint: E,
@@ -46,8 +46,8 @@ extension DefaultDataTransferService: DataTransferService {
                                                        completion: @escaping CompletionHandler<T>) -> NetworkCancellable? where E.Response == T {
         return self.networkService.request(endpoint: endpoint) { result in
             switch result {
-            case .success(let data):
-                let result: Result<T, DataTransferError> = self.decode(data: data, decoder: endpoint.responseDecoder)
+            case .success(let response):
+                let result: Result<(T, String?), DataTransferError> = self.decode(data: response.data, response: response.response, decoder: endpoint.responseDecoder)
                 return completion(result)
             case .failure(let error):
                 printIfDebug("\(error)")
@@ -59,11 +59,12 @@ extension DefaultDataTransferService: DataTransferService {
     
     // MARK: - Private
     
-    private func decode<T: Decodable>(data: Data?, decoder: ResponseDecoder) -> Result<T, DataTransferError> {
+    private func decode<T: Decodable>(data: Data?, response: HTTPURLResponse?, decoder: ResponseDecoder) -> Result<(T, String?), DataTransferError> {
         do {
-            guard let data = data else { return .failure(.noResponse) }
+            guard let data = data, let response = response else { return .failure(.noResponse) }
             let result: T = try decoder.decode(data)
-            return .success(result)
+            let nextURL = try parseNextURL(response)
+            return .success((result, nextURL))
         } catch {
             printIfDebug("\(error)")
             return .failure(.parsing(error))

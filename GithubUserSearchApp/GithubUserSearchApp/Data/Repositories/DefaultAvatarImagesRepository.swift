@@ -23,7 +23,7 @@ extension DefaultAvatarImagesRepository: AvatarImagesRepository {
             self?.dataTransferService.request(with: endpoint) { result in
                 let result = result.mapError { $0 as Error }
                 switch result {
-                case .success(let data):
+                case .success(let (data, _)):
                     emitter.onNext(data)
                     emitter.onCompleted()
                 case .failure(let error):
