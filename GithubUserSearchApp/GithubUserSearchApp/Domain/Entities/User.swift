@@ -15,6 +15,5 @@ struct User {
 }
 
 struct UsersPage {
-    let totalNumberOfResults: Int
     let users: [User]
 }
