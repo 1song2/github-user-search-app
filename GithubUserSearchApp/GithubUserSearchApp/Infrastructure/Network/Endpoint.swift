@@ -58,10 +58,15 @@ enum RequestGenerationError: Error {
 
 extension Requestable {
     func url(with config: NetworkConfigurable) throws -> URL {
-        let baseURL = config.baseURL.absoluteString.last != "/"
-        ? config.baseURL.absoluteString + "/"
-        : config.baseURL.absoluteString
-        let endpoint = isFullPath ? path : baseURL.appending(path)
+        let endpoint: String
+        if let baseURLStr = config.baseURL?.absoluteString {
+            let baseURL = baseURLStr.last != "/"
+            ? baseURLStr + "/"
+            : baseURLStr
+            endpoint = baseURL.appending(path)
+        } else {
+            endpoint = path
+        }
         
         guard var urlComponents = URLComponents(string: endpoint) else { throw RequestGenerationError.components }
         var urlQueryItems = [URLQueryItem]()
