@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class UserViewController: UITableViewController {
+class UsersViewController: UITableViewController {
     private var viewModel: UsersViewModel!
     private var avatarImagesRepository: AvatarImagesRepository?
     private var disposeBag = DisposeBag()
@@ -34,8 +34,8 @@ class UserViewController: UITableViewController {
     }
     
     static func create(with viewModel: UsersViewModel,
-                       avatarImagesRepository: AvatarImagesRepository?) -> UserViewController {
-        let view = UserViewController()
+                       avatarImagesRepository: AvatarImagesRepository?) -> UsersViewController {
+        let view = UsersViewController()
         view.viewModel = viewModel
         view.avatarImagesRepository = avatarImagesRepository
         return view
@@ -122,7 +122,7 @@ class UserViewController: UITableViewController {
 
 // MARK: - UISearchBarDelegate
 
-extension UserViewController: UISearchBarDelegate {
+extension UsersViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         searchController.isActive = false
@@ -136,7 +136,7 @@ extension UserViewController: UISearchBarDelegate {
 
 // MARK: - UITableViewDelegate
 
-extension UserViewController {
+extension UsersViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
         if (bottomEdge + 200.0 >= scrollView.contentSize.height) {

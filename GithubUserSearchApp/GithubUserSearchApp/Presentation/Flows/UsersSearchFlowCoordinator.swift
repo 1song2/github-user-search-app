@@ -8,14 +8,14 @@
 import UIKit
 
 protocol UsersSearchFlowCoordinatorDependencies  {
-    func makeUserViewController() -> UserViewController
+    func makeUserViewController() -> UsersViewController
 }
 
 final class UsersSearchFlowCoordinator {
     private weak var navigationController: UINavigationController?
     private let dependencies: UsersSearchFlowCoordinatorDependencies
 
-    private weak var userVC: UserViewController?
+    private weak var userVC: UsersViewController?
 
     init(navigationController: UINavigationController,
          dependencies: UsersSearchFlowCoordinatorDependencies) {

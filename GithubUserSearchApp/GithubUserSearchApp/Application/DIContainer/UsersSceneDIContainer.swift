@@ -40,8 +40,8 @@ final class UsersSceneDIContainer {
     
     // MARK: - View Controller
     
-    func makeUserViewController() -> UserViewController {
-        return UserViewController.create(with: makeUsersViewModel(),
+    func makeUserViewController() -> UsersViewController {
+        return UsersViewController.create(with: makeUsersViewModel(),
                                          avatarImagesRepository: makeAvatarImagesRepository())
     }
     
