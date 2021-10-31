@@ -61,3 +61,14 @@ extension UserViewController: UISearchBarDelegate {
         viewModel.didCancelSearch()
     }
 }
+
+// MARK: - UITableViewDelegate
+
+extension UserViewController {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
+        if (bottomEdge + 200.0 >= scrollView.contentSize.height) {
+            self.viewModel.didLoadNextPage()
+        }
+    }
+}
