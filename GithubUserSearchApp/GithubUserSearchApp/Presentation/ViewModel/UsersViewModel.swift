@@ -17,7 +17,8 @@ protocol UsersViewModelInput {
 }
 
 protocol UsersViewModelOutput {
-    var items: BehaviorSubject<[UserViewModel]> { get }
+    var allItems: BehaviorSubject<[UserViewModel]> { get }
+    var starredItems: BehaviorRelay<[String: [UserViewModel]]> { get }
     var searchText: String { get }
     var page: String { get }
     var error: PublishSubject<String> { get }
@@ -40,7 +41,8 @@ final class DefaultUsersViewModel: UsersViewModel {
     
     // MARK: - OUTPUT
     
-    var items: BehaviorSubject<[UserViewModel]> = BehaviorSubject<[UserViewModel]>(value: [])
+    var allItems: BehaviorSubject<[UserViewModel]> = BehaviorSubject<[UserViewModel]>(value: [])
+    var starredItems: BehaviorRelay<[String: [UserViewModel]]> = BehaviorRelay<[String: [UserViewModel]]>(value: [:])
     var searchText: String = ""
     var page: String = ""
     var error: PublishSubject<String> = PublishSubject<String>()
@@ -68,12 +70,22 @@ final class DefaultUsersViewModel: UsersViewModel {
     private func appendPage(_ usersPage: UsersPage) {
         pages = pages + [usersPage]
         
-        items.onNext(pages.users.map(UserViewModel.init))
+        allItems.onNext(pages.users.map { user in
+            let userViewModel = UserViewModel(user: user)
+            if starredItems.value.values
+                .flatMap({ $0 })
+                .contains(where: { viewModel in
+                viewModel.id == user.id
+            }) {
+                userViewModel.didStar(true)
+            }
+            return userViewModel
+        })
     }
     
     private func resetPages() {
         pages.removeAll()
-        items.onNext([])
+        allItems.onNext([])
     }
     
     private func load(query: String) {
