@@ -75,12 +75,11 @@ class UserViewController: UITableViewController {
                             self?.configureCell(cell, with: item)
                         }.disposed(by: self.disposeBag)
                 } else {
-                    let sections = Observable.just(
-                        self.viewModel.starredItems.value
-                            .sorted { $0.key < $1.key }
-                            .map { SectionModel<String, UserViewModel>(model: $0, items: $1) }
-                    )
-                    sections.bind(to: self.tableView.rx.items(dataSource: self.alphabeticalDataSource))
+                    self.viewModel.filteredItems
+                        .map {
+                            $0.map { SectionModel<String, UserViewModel>(model: $0, items: $1) }
+                        }
+                        .bind(to: self.tableView.rx.items(dataSource: self.alphabeticalDataSource))
                         .disposed(by: self.disposeBag)
                 }
             })

@@ -19,7 +19,8 @@ protocol UsersViewModelInput {
 
 protocol UsersViewModelOutput {
     var allItems: BehaviorSubject<[UserViewModel]> { get }
-    var starredItems: BehaviorRelay<[String: [UserViewModel]]> { get }
+    var starredItems: [String: [UserViewModel]] { get }
+    var filteredItems: BehaviorSubject<[Dictionary<String, [UserViewModel]>.Element]> { get }
     var searchText: String { get }
     var page: String { get }
     var error: PublishSubject<String> { get }
@@ -43,7 +44,8 @@ final class DefaultUsersViewModel: UsersViewModel {
     // MARK: - OUTPUT
     
     var allItems: BehaviorSubject<[UserViewModel]> = BehaviorSubject<[UserViewModel]>(value: [])
-    var starredItems: BehaviorRelay<[String: [UserViewModel]]> = BehaviorRelay<[String: [UserViewModel]]>(value: [:])
+    var starredItems: [String: [UserViewModel]] = [:]
+    var filteredItems: BehaviorSubject<[Dictionary<String, [UserViewModel]>.Element]> = BehaviorSubject<[Dictionary<String, [UserViewModel]>.Element]>(value: [])
     var searchText: String = ""
     var page: String = ""
     var error: PublishSubject<String> = PublishSubject<String>()
@@ -67,9 +69,9 @@ final class DefaultUsersViewModel: UsersViewModel {
             switch result {
             case .success(let users):
                 guard let self = self else { return }
-                self.starredItems.accept(Dictionary(grouping: users.map(UserViewModel.init),
-                                                    by: { $0.username.first?.uppercased() ?? "" })
-                )
+                self.starredItems = Dictionary(grouping: users.map(UserViewModel.init),
+                                               by: { $0.username.first?.uppercased() ?? "" })
+                self.filteredItems.onNext(self.starredItems.sorted(by: { $0.key < $1.key }))
             case .failure(let error):
                 self?.handle(error: error)
             }
@@ -83,7 +85,7 @@ final class DefaultUsersViewModel: UsersViewModel {
         
         allItems.onNext(pages.users.map { user in
             let userViewModel = UserViewModel(user: user)
-            if starredItems.value.values
+            if starredItems.values
                 .flatMap({ $0 })
                 .contains(where: { viewModel in viewModel.id == user.id }) {
                 userViewModel.didStar(true)
