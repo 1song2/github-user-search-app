@@ -37,6 +37,7 @@ protocol UsersViewModel: UsersViewModelInput, UsersViewModelOutput {}
 final class DefaultUsersViewModel: UsersViewModel {
     private var disposeBag = DisposeBag()
     private let searchUsersUseCase: SearchUsersUseCase
+    private let cache: StarredUsersStorage
     private var pages: [UsersPage] = []
     
     // MARK: - OUTPUT
@@ -61,8 +62,21 @@ final class DefaultUsersViewModel: UsersViewModel {
     
     // MARK: - Init
     
-    init(searchUsersUseCase: SearchUsersUseCase) {
+    init(searchUsersUseCase: SearchUsersUseCase,
+         cache: StarredUsersStorage) {
         self.searchUsersUseCase = searchUsersUseCase
+        self.cache = cache
+        cache.getStarredUsers { [weak self] result in
+            switch result {
+            case .success(let users):
+                guard let self = self else { return }
+                self.starredItems.accept(Dictionary(grouping: users.map(UserViewModel.init),
+                                                    by: { $0.username.first?.uppercased() ?? "" })
+                )
+            case .failure(let error):
+                self?.handle(error: error)
+            }
+        }
     }
     
     // MARK: - Private
