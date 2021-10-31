@@ -15,11 +15,11 @@ class UserViewController: UITableViewController {
         setupViews()
     }
     
-    //MARK: - Private
+    // MARK: - Private
     
     private func setupViews() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "GitHub Users" // viewModel.screenTitle
+        title = viewModel.screenTitle
         if #available(iOS 13, *) {
             view.backgroundColor = .systemBackground
         } else {
@@ -34,10 +34,8 @@ class UserViewController: UITableViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.showsScopeBar = true
-        searchController.searchBar.scopeButtonTitles = [ // viewModel.buttonTitles
-            NSLocalizedString("API", comment: ""),
-            NSLocalizedString("Local", comment: "")
-        ]
+        searchController.searchBar.scopeButtonTitles = viewModel.buttonTitles
+        definesPresentationContext = true
     }
 }
 
