@@ -51,7 +51,7 @@
 
 ### Architecture - MVVM & Clean Architecture
 
-MVVM과 Clean Architecture를 적용해 프로젝트를 진행했습니다. 처음에는 기본적으로 뷰가 하나밖에 없는만큼 간단한 구조에 적합한 MVC로 진행하는 것도 고려했습니다. 하지만 뜯어보면 모든 유저뷰와 즐겨찾기한 유저뷰 양쪽에서 각각 검색을 가능해야한 구조이므로 MVC 코드로 구현하기에는 생각만큼 간단하지 않은 구조가 될 것이라 판단했습니다. 이에 코드 구현양은 많아질 수 있지만 MVVM 구조로 진행하는 것이 적절하게 코드를 분리해 가독성 있는 코드로 작성하고자 했습니다. 또한 프로젝트 기간 동안은 작성하지 못했지만 View Model에 대한 테스트를 진행할 계획이 있으므로 더더욱 MVVM으로 진행하는 것이 좋겠다고 생각했습니다.
+MVVM과 Clean Architecture를 적용해 프로젝트를 진행했습니다. 처음에는 기본적으로 뷰가 하나밖에 없는만큼 간단한 구조에 적합한 MVC로 진행하는 것을 고려했습니다. 하지만 뜯어보면 모든 유저뷰와 즐겨찾기한 유저뷰 양쪽에서 각각 검색이 가능한 구조이므로 MVC 코드로 구현하기에는 생각만큼 간단하지 않을 것이라 판단했습니다. 이에 코드 구현양은 많아질 수 있지만 MVVM 구조로 진행해 적절하게 코드를 분리하고 가독성 있는 코드로 작성하고자 했습니다. 또한 프로젝트 기간 동안은 작성하지 못했지만 View Model에 대한 테스트를 진행할 계획이 있으므로 더더욱 MVVM으로 진행하는 것이 좋겠다고 생각했습니다.
 
 * Layers
   * Domain Layer
@@ -59,18 +59,18 @@ MVVM과 Clean Architecture를 적용해 프로젝트를 진행했습니다. 처�
     * Use Cases: 내부에 `UsersRepository`를 가지고 외부에서 매개 변수로 `query`와 `page`를 전달 받아 유저 검색을 실행할 수 있도록 클래스를 생성했습니다.
   * Data Layer
     * Repositories: 내부에 `DataTransferService` 객체를 가지고 유저 페이지, 아바타 이미지를 가져올 수 있는 레포지토리 클래스를 각각 생성했습니다. 각 클래스가 프로토콜을 채택하도록 해 한번 더 추상화를 해주었습니다.
-    * API (Network): `NetworkService` 객체를 통해 네트워크 통신을, `DataTransferService` 객체를 통해 디코딩을 처리해주었씁니다.
-      * 사용한 API는 요청에 대한 응답의 reponse의 헤더에 다음 페이지 URL을 담아 보내줍니다. 그렇기에 일반적으로 리퀘스트 성공, 실패에 따라 Data, Error만 처리하는 것과 달리 Response 역시 Completion Handler를 통해 함께 전달해주었습니다. `NetworkService`가 전달한 Response는 `DataTransferService`에서 파싱해 다음 페이지 URL만 뽑아냈습니다.
-      * 또한 Rate Limit을 초과한 경우 API는 Response의 Status code를 403으로 보내줍니다. 에러 처리를 통해 이 경우 Alert 창을 띄워 유저에게 상황을 전달할 수 있도록 구현했습니다.
-    * Persistence DB: 즐겨찾기한 유저를 로컬 저장하기 위해 Core Data를 활용했습니다. AppDelegate에 기본으로 구현되어 있던 Core Data 관련 코드를 별도의 클래스로 옮기고 클래스를 싱글톤으로 만들어주었습니다.
+    * API (Network): `NetworkService` 객체를 통해 네트워크 통신을, `DataTransferService` 객체를 통해 디코딩을 처리해주었습니다.
+      * 사용한 API는 요청에 대한 응답의 reponse의 헤더에 다음 페이지 URL을 담아 보내주고 있습니다. 그렇기에 일반적으로 리퀘스트 성공, 실패에 따라 Data, Error만 처리하는 것과 달리 Response 역시 Completion Handler를 통해 함께 전달하도록 처리했습니다. `NetworkService`가 전달한 Response는 `DataTransferService`에서 파싱해 다음 페이지 URL만 뽑아냈습니다.
+      * Rate Limit을 초과한 경우 API는 Status code를 403으로 보내줍니다. 이 경우 에러 처리를 통해 Alert 창을 띄워 유저에게 상황을 전달할 수 있도록 구현했습니다.
+    * Persistence DB: 즐겨찾기한 유저를 로컬 저장하기 위해 Core Data를 활용했습니다. AppDelegate에 기본으로 구현되어 있던 Core Data 관련 코드를 별도의 클래스로 옮긴 후 클래스를 싱글톤으로 만들어주었습니다.
   * Presentation Layer (MVVM)
     * Views & View Models
-      * 스토리보드를 제거하고 코드로 뷰를 구현했습니다. 테이블뷰의 셀은 Xib로 만들었습니다.
-      * 뷰컨트롤러에서는 바인딩을 통해 뷰가 뷰모델의 상태 변화를 옵저빙할 수 있게 해주었습니다. 바인딩에는 RxSwift를 이용했습니다. 이를 통해 뷰모델의 속성값이 변경되면 자동으로 뷰를 업데이트 합니다.
+      * Storyboard를 제거하고 코드로 뷰를 구현했습니다. 테이블뷰의 셀은 Xib로 만들었습니다.
+      * View Controller에서는 바인딩을 통해 View가 View Model의 상태 변화를 옵저빙할 수 있게 해주었습니다. 바인딩에는 RxSwift를 이용했습니다. 이를 통해 View Model의 속성값이 변경되면 자동으로 View를 업데이트 합니다.
 
 ### RxSwift 활용
 
-이번 프로젝트를 진행하며 RxSwift를 학습하고 프로젝트에 적용해보았습니다. 확실히 러닝커브가 높다고 느껴지긴 했지만 View Model을 바인딩해주는 작업에 있어 RxSwift를 사용하지 않고 Completion Handler로 넘기거나 별도의 Observable을 직접 구현하는 것에 비해 심플해진다는 느낌이 들었습니다.
+이번 프로젝트를 진행하며 RxSwift를 학습하고 프로젝트에 적용해보았습니다. 확실히 러닝커브가 높았지만 했지만 View Model을 바인딩해주는 작업에 있어 Completion Handler로 넘기거나 별도의 Observable을 직접 구현하는 것에 비해 심플하다는 이점을 느낄 수 있었습니다.
 
 앱의 중심이 되는 테이블뷰는 기본 Data Source를 활용하지 않고 RxCocoa와 RxDataSouces만으로 구현했습니다. 모든 유저와 즐겨찾기한 유저를 한 테이블뷰로 보여주는 구조이므로 선택된 Segmented Control의 인덱스에 따라 사용하는 라이브러리를 달리해 테이블뷰의 내용을 채워주었습니다.
 
@@ -78,7 +78,7 @@ MVVM과 Clean Architecture를 적용해 프로젝트를 진행했습니다. 처�
 
 ### Core Data 활용
 
-즐겨찾기한 유저를 로컬에 저장하기 위해 Core Data 프레임워크를 활용했습니다. CRUD 중 즐겨찾기에 저장, 즐겨찾기에서 제거, 즐겨찾기 목록 조회의 세 가지를 구현했습니다. 섹션 헤더뷰의 구현을 이해 즐겨찾기 목록을 Core Data Entity 타입의 배열 대신 첫글자와 View Model 배열의 딕셔너리 형태로 만들었기 때문에 매핑을 통해 Core Data Entity와 Domain Entity간의 전환을 자유롭게 만들어주었습니다.
+즐겨찾기한 유저를 로컬에 저장하기 위해 Core Data 프레임워크를 활용했습니다. CRUD 중 즐겨찾기에 **저장**, 즐겨찾기에서 **제거**, 즐겨찾기 **목록 조회**의 세 가지를 구현했습니다. 섹션 헤더뷰를 위해 즐겨찾기 목록을 Core Data Entity 타입의 배열 대신 첫글자와 View Model 배열의 딕셔너리 형태로 만들었기 때문에 매핑을 통해 Core Data Entity와 Domain Entity간의 전환을 자유롭게 만들어주었습니다.
 
 ## 개발 환경 설정
 
@@ -97,6 +97,7 @@ MVVM, Dependency Injection, Clean Architecture, RxSwift, Core Data
 - [ ] View Model 유닛테스트
 - [ ] Activity Indicator 추가
 - [ ] 화면 전환을 보다 부드럽게 만들기
+- [ ] 중복되는 검색 결과 처리
 
 ## References
 
