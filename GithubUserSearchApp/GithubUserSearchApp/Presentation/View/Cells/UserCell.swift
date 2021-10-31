@@ -29,10 +29,6 @@ class UserCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     @IBAction func starButtonPressed(_ sender: UIButton) {
         isStarred = !isStarred
     }
@@ -40,5 +36,24 @@ class UserCell: UITableViewCell {
     static func nib() -> UINib {
         let nib = UINib(nibName: reuseIdentifier, bundle: nil)
         return nib
+    }
+    
+    func updateAvatarImage(with viewModel: UserViewModel, avatarImagesRepository: AvatarImagesRepository?) {
+        avatarImageView.image = nil
+        
+        avatarImagesRepository?.fetchImage(with: viewModel.avatarUrl)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.avatarImageView.layer.masksToBounds = true
+                self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.width / 2
+                self.avatarImageView.image = UIImage(data: $0)
+            })
+            .disposed(by: cellDisposeBag)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
 }
