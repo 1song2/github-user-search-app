@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,17 +17,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="453" height="179"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0f1-1h-mJu">
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0f1-1h-mJu">
                         <rect key="frame" x="0.0" y="0.0" width="453" height="179"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hL-OD-Rbb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-Uq-CN3">
                                 <rect key="frame" x="0.0" y="0.0" width="179" height="179"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hL-OD-Rbb">
+                                        <rect key="frame" x="10" y="10" width="159" height="159"/>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8hL-OD-Rbb" secondAttribute="height" multiplier="1:1" id="oyF-3Z-K6y"/>
+                                    <constraint firstItem="8hL-OD-Rbb" firstAttribute="top" secondItem="hUq-Uq-CN3" secondAttribute="top" constant="10" id="Dl8-ls-gw9"/>
+                                    <constraint firstAttribute="trailing" secondItem="8hL-OD-Rbb" secondAttribute="trailing" constant="10" id="Gpi-8M-Aph"/>
+                                    <constraint firstItem="8hL-OD-Rbb" firstAttribute="leading" secondItem="hUq-Uq-CN3" secondAttribute="leading" constant="10" id="HXs-o9-qWs"/>
+                                    <constraint firstAttribute="width" secondItem="hUq-Uq-CN3" secondAttribute="height" multiplier="1:1" id="T5Y-8d-isu"/>
+                                    <constraint firstAttribute="bottom" secondItem="8hL-OD-Rbb" secondAttribute="bottom" constant="10" id="e5c-7s-Zvj"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zl-ls-O28">
-                                <rect key="frame" x="189" y="0.0" width="75" height="179"/>
+                                <rect key="frame" x="179" y="0.0" width="95" height="179"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,7 +50,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="star"/>
                                 <connections>
-                                    <action selector="starButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ym9-Kc-vuX"/>
+                                    <action selector="starButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dmO-SE-9pl"/>
                                 </connections>
                             </button>
                         </subviews>
