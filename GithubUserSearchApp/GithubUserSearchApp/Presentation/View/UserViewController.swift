@@ -10,6 +10,14 @@ import UIKit
 class UserViewController: UITableViewController {
     private var searchController = UISearchController(searchResultsController: nil)
     
+    static func create(with viewModel: UsersViewModel,
+                       avatarImagesRepository: AvatarImagesRepository?) -> UserViewController {
+        let view = UserViewController()
+        view.viewModel = viewModel
+        view.avatarImagesRepository = avatarImagesRepository
+        return view
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
