@@ -15,11 +15,11 @@ class UserViewController: UITableViewController {
         setupViews()
     }
     
-    //MARK: - Private
+    // MARK: - Private
     
     private func setupViews() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "GitHub Users" // viewModel.screenTitle
+        title = viewModel.screenTitle
         if #available(iOS 13, *) {
             view.backgroundColor = .systemBackground
         } else {
@@ -31,22 +31,25 @@ class UserViewController: UITableViewController {
     }
     
     private func setupSearchController() {
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.showsScopeBar = true
-        searchController.searchBar.scopeButtonTitles = [ // viewModel.buttonTitles
-            NSLocalizedString("API", comment: ""),
-            NSLocalizedString("Local", comment: "")
-        ]
+        searchController.searchBar.scopeButtonTitles = viewModel.buttonTitles
+        definesPresentationContext = true
     }
 }
 
-//MARK: - UITableViewDataSource
-extension UserViewController {
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseIdentifier, for: indexPath) as? UserCell else {
-            return UITableViewCell()
-        }
-        return cell
+// MARK: - UISearchBarDelegate
+
+extension UserViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        searchController.isActive = false
+        viewModel.didSearch(query: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.didCancelSearch()
     }
 }

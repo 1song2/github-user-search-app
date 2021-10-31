@@ -22,7 +22,7 @@ protocol NetworkCancellable {
 extension URLSessionTask: NetworkCancellable { }
 
 protocol NetworkService {
-    typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void
+    typealias CompletionHandler = (Result<(data: Data?, response: HTTPURLResponse?), NetworkError>) -> Void
     
     func request(endpoint: Requestable,
                  completion: @escaping CompletionHandler) -> NetworkCancellable?
@@ -49,9 +49,10 @@ final class DefaultNetworkService {
     
     private func request(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
         let sessionDataTask = sessionManager.request(request) { data, response, requestError in
+            let response = response as? HTTPURLResponse
             if let requestError = requestError {
                 var error: NetworkError
-                if let response = response as? HTTPURLResponse {
+                if let response = response {
                     error = .error(statusCode: response.statusCode, data: data)
                 } else {
                     error = self.resolve(error: requestError)
@@ -59,7 +60,11 @@ final class DefaultNetworkService {
                 printIfDebug("\(error)")
                 completion(.failure(error))
             } else {
-                completion(.success(data))
+                if let response = response, !(200..<300 ~= response.statusCode) {
+                    completion(.failure(.error(statusCode: response.statusCode, data: nil)))
+                } else {
+                    completion(.success((data, response)))
+                }
             }
         }
         return sessionDataTask
@@ -102,6 +107,7 @@ class DefaultNetworkSessionManager: NetworkSessionManager {
 
 extension NetworkError {
     var isNotFoundError: Bool { return hasStatusCode(404) }
+    var isForbiddenError: Bool { return hasStatusCode(403) }
     
     func hasStatusCode(_ codeError: Int) -> Bool {
         switch self {

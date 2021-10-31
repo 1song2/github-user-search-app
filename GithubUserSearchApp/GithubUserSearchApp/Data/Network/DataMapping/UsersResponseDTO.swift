@@ -11,10 +11,8 @@ import Foundation
 
 struct UsersResponseDTO: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case totalNumberOfResults = "total_count"
         case users = "items"
     }
-    let totalNumberOfResults: Int
     let users: [UserDTO]
 }
 
@@ -34,9 +32,8 @@ extension UsersResponseDTO {
 // MARK: - Mappings to Domain
 
 extension UsersResponseDTO {
-    func toDomain() -> Users {
-        return .init(totalNumberOfResults: totalNumberOfResults,
-                     users: users.map { $0.toDomain() })
+    func toDomain() -> UsersPage {
+        return .init(users: users.map { $0.toDomain() })
     }
 }
 
@@ -44,6 +41,7 @@ extension UsersResponseDTO.UserDTO {
     func toDomain() -> User {
         return .init(id: id,
                      username: username,
-                     avatarUrl: avatarUrl)
+                     avatarUrl: avatarUrl,
+                     isStarred: false)
     }
 }

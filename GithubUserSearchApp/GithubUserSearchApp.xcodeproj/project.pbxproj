@@ -17,11 +17,16 @@
 		E42E5F652726684300857B72 /* UsersResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F642726684300857B72 /* UsersResponseDTO.swift */; };
 		E42E5F6727266AFF00857B72 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6627266AFF00857B72 /* APIEndpoints.swift */; };
 		E42E5F6927266C6800857B72 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6827266C6800857B72 /* UsersRepository.swift */; };
-		E42E5F6B27266D4700857B72 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6A27266D4700857B72 /* Cancellable.swift */; };
 		E42E5F6D27266DAF00857B72 /* AvatarImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F6C27266DAF00857B72 /* AvatarImagesRepository.swift */; };
 		E42E5F7127266F4500857B72 /* DefaultUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F7027266F4500857B72 /* DefaultUsersRepository.swift */; };
 		E42E5F742726732500857B72 /* DefaultAvatarImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F732726732500857B72 /* DefaultAvatarImagesRepository.swift */; };
 		E42E5F762726758800857B72 /* SearchUsersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F752726758800857B72 /* SearchUsersUseCase.swift */; };
+		E42E5F862727CA0E00857B72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E5F852727CA0E00857B72 /* UserViewModel.swift */; };
+		E4562DC3272C0B050022CBBE /* ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DC2272C0B050022CBBE /* ConnectionError.swift */; };
+		E4562DC5272C0B520022CBBE /* LimitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DC4272C0B520022CBBE /* LimitError.swift */; };
+		E4562DCA272C0BB20022CBBE /* DataTransferError+ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DC9272C0BB20022CBBE /* DataTransferError+ConnectionError.swift */; };
+		E4562DCC272C0BE00022CBBE /* DataTransferError+LimitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DCB272C0BE00022CBBE /* DataTransferError+LimitError.swift */; };
+		E4AC82ED272A428D00037243 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC82EC272A428D00037243 /* UsersViewModel.swift */; };
 		E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960A2722E18500AE0796 /* AppDelegate.swift */; };
 		E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* UserViewController.swift */; };
 		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
@@ -78,11 +83,16 @@
 		E42E5F642726684300857B72 /* UsersResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponseDTO.swift; sourceTree = "<group>"; };
 		E42E5F6627266AFF00857B72 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		E42E5F6827266C6800857B72 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
-		E42E5F6A27266D4700857B72 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
 		E42E5F6C27266DAF00857B72 /* AvatarImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImagesRepository.swift; sourceTree = "<group>"; };
 		E42E5F7027266F4500857B72 /* DefaultUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUsersRepository.swift; sourceTree = "<group>"; };
 		E42E5F732726732500857B72 /* DefaultAvatarImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAvatarImagesRepository.swift; sourceTree = "<group>"; };
 		E42E5F752726758800857B72 /* SearchUsersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUsersUseCase.swift; sourceTree = "<group>"; };
+		E42E5F852727CA0E00857B72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		E4562DC2272C0B050022CBBE /* ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
+		E4562DC4272C0B520022CBBE /* LimitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitError.swift; sourceTree = "<group>"; };
+		E4562DC9272C0BB20022CBBE /* DataTransferError+ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTransferError+ConnectionError.swift"; sourceTree = "<group>"; };
+		E4562DCB272C0BE00022CBBE /* DataTransferError+LimitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTransferError+LimitError.swift"; sourceTree = "<group>"; };
+		E4AC82EC272A428D00037243 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		E4C696072722E18500AE0796 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6960A2722E18500AE0796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4C6960E2722E18500AE0796 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +163,6 @@
 				5229597F394265E397E0DAA9 /* Pods-GithubUserSearchAppTests.debug.xcconfig */,
 				1725D235CE5D55272C49FC1A /* Pods-GithubUserSearchAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,6 +254,41 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		E42E5F872727CA2E00857B72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC82EC272A428D00037243 /* UsersViewModel.swift */,
+				E42E5F852727CA0E00857B72 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E4562DC6272C0B700022CBBE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E4562DC2272C0B050022CBBE /* ConnectionError.swift */,
+				E4562DC4272C0B520022CBBE /* LimitError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E4562DC7272C0B940022CBBE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E4562DC8272C0BA00022CBBE /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E4562DC8272C0BA00022CBBE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4562DC9272C0BB20022CBBE /* DataTransferError+ConnectionError.swift */,
+				E4562DCB272C0BE00022CBBE /* DataTransferError+LimitError.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E4C695FE2722E18500AE0796 = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +320,7 @@
 				E4C696412724473600AE0796 /* Data */,
 				E4C696762725406000AE0796 /* Infrastructure */,
 				E4C696402724470B00AE0796 /* Resources */,
-				E42E5F6A27266D4700857B72 /* Cancellable.swift */,
+				E4562DC6272C0B700022CBBE /* Common */,
 			);
 			path = GithubUserSearchApp;
 			sourceTree = "<group>";
@@ -309,6 +353,8 @@
 		E4C6963F272446C000AE0796 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E4562DC7272C0B940022CBBE /* Utils */,
+				E42E5F872727CA2E00857B72 /* ViewModel */,
 				E42E5F7B2726776700857B72 /* View */,
 			);
 			path = Presentation;
@@ -637,19 +683,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E42E5F6B27266D4700857B72 /* Cancellable.swift in Sources */,
+				E4562DCA272C0BB20022CBBE /* DataTransferError+ConnectionError.swift in Sources */,
 				E42E5F4F2726565C00857B72 /* UserCell.swift in Sources */,
 				E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */,
 				E42E5F6D27266DAF00857B72 /* AvatarImagesRepository.swift in Sources */,
+				E4562DC5272C0B520022CBBE /* LimitError.swift in Sources */,
 				E42E5F762726758800857B72 /* SearchUsersUseCase.swift in Sources */,
 				E4C696742725404500AE0796 /* NetworkConfig.swift in Sources */,
 				E42E5F6727266AFF00857B72 /* APIEndpoints.swift in Sources */,
 				E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */,
+				E4562DCC272C0BE00022CBBE /* DataTransferError+LimitError.swift in Sources */,
 				E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */,
+				E4AC82ED272A428D00037243 /* UsersViewModel.swift in Sources */,
 				E42E5F52272661F900857B72 /* User.swift in Sources */,
 				E4C6967C27254B9700AE0796 /* DataTransferService.swift in Sources */,
+				E4562DC3272C0B050022CBBE /* ConnectionError.swift in Sources */,
 				E42E5F6927266C6800857B72 /* UsersRepository.swift in Sources */,
 				E4C69678272541B900AE0796 /* Endpoint.swift in Sources */,
+				E42E5F862727CA0E00857B72 /* UserViewModel.swift in Sources */,
 				E42E5F652726684300857B72 /* UsersResponseDTO.swift in Sources */,
 				E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */,
 				E42E5F7127266F4500857B72 /* DefaultUsersRepository.swift in Sources */,
@@ -761,7 +812,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -816,7 +867,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -895,7 +946,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5M27T5LV4H;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -923,7 +974,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5M27T5LV4H;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

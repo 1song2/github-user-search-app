@@ -6,27 +6,25 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol SearchUsersUseCase {
-    func execute(requestValue: SearchMoviesUseCaseRequestValue,
-                 completion: @escaping (Result<Users, Error>) -> Void)
+    func execute(requestValue: SearchMoviesUseCaseRequestValue) -> Observable<(UsersPage, String?)>
 }
 
 final class DefaultSearchUsersUseCase: SearchUsersUseCase {
     private let usersRepository: UsersRepository
-
+    
     init(usersRepository: UsersRepository) {
         self.usersRepository = usersRepository
     }
-
-    func execute(requestValue: SearchMoviesUseCaseRequestValue,
-                 completion: @escaping (Result<Users, Error>) -> Void) {
-        usersRepository.fetchUsers(query: requestValue.query) { result in
-            completion(result)
-        }
+    
+    func execute(requestValue: SearchMoviesUseCaseRequestValue) -> Observable<(UsersPage, String?)> {
+        return usersRepository.fetchUsers(query: requestValue.query, page: requestValue.page)
     }
 }
 
 struct SearchMoviesUseCaseRequestValue {
     let query: String
+    let page: String
 }

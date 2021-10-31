@@ -15,7 +15,7 @@ enum DataTransferError: Error {
 }
 
 protocol DataTransferService {
-    typealias CompletionHandler<T> = (Result<T, DataTransferError>) -> Void
+    typealias CompletionHandler<T> = (Result<(T, String?), DataTransferError>) -> Void
     
     @discardableResult
     func request<T: Decodable, E: ResponseRequestable>(with endpoint: E,
@@ -42,46 +42,64 @@ final class DefaultDataTransferService {
 }
 
 extension DefaultDataTransferService: DataTransferService {
-    
     func request<T: Decodable, E: ResponseRequestable>(with endpoint: E,
                                                        completion: @escaping CompletionHandler<T>) -> NetworkCancellable? where E.Response == T {
         return self.networkService.request(endpoint: endpoint) { result in
             switch result {
-            case .success(let data):
-                let result: Result<T, DataTransferError> = self.decode(data: data, decoder: endpoint.responseDecoder)
-                DispatchQueue.main.async { return completion(result) }
+            case .success(let response):
+                let result: Result<(T, String?), DataTransferError> = self.decode(data: response.data, response: response.response, decoder: endpoint.responseDecoder)
+                return completion(result)
             case .failure(let error):
                 printIfDebug("\(error)")
                 let error = self.resolve(networkError: error)
-                DispatchQueue.main.async { return completion(.failure(error)) }
-            }
-        }
-    }
-    
-    func request<E>(with endpoint: E, completion: @escaping CompletionHandler<Void>) -> NetworkCancellable? where E : ResponseRequestable, E.Response == Void {
-        return self.networkService.request(endpoint: endpoint) { result in
-            switch result {
-            case .success:
-                DispatchQueue.main.async { return completion(.success(())) }
-            case .failure(let error):
-                printIfDebug("\(error)")
-                let error = self.resolve(networkError: error)
-                DispatchQueue.main.async { return completion(.failure(error)) }
+                return completion(.failure(error))
             }
         }
     }
     
     // MARK: - Private
     
-    private func decode<T: Decodable>(data: Data?, decoder: ResponseDecoder) -> Result<T, DataTransferError> {
+    private func decode<T: Decodable>(data: Data?, response: HTTPURLResponse?, decoder: ResponseDecoder) -> Result<(T, String?), DataTransferError> {
         do {
-            guard let data = data else { return .failure(.noResponse) }
+            guard let data = data, let response = response else { return .failure(.noResponse) }
             let result: T = try decoder.decode(data)
-            return .success(result)
+            let nextURL = try parseNextURL(response)
+            return .success((result, nextURL))
         } catch {
             printIfDebug("\(error)")
             return .failure(.parsing(error))
         }
+    }
+    
+    private func parseLinks(_ links: String) throws -> [String: String] {
+        let parseLinksPattern = "\\s*,?\\s*<([^\\>]*)>\\s*;\\s*rel=\"([^\"]*)\""
+        let linksRegex = try! NSRegularExpression(pattern: parseLinksPattern, options: [.allowCommentsAndWhitespace])
+        let length = (links as NSString).length
+        let matches = linksRegex.matches(in: links,
+                                         options: NSRegularExpression.MatchingOptions(),
+                                         range: NSRange(location: 0, length: length))
+        var result: [String: String] = [:]
+
+        for m in matches {
+            let matches = (1..<m.numberOfRanges).map { rangeIndex -> String in
+                let range = m.range(at: rangeIndex)
+                let startIndex = links.index(links.startIndex, offsetBy: range.location)
+                let endIndex = links.index(links.startIndex, offsetBy: range.location + range.length)
+                return String(links[startIndex ..< endIndex])
+            }
+            if matches.count != 2 { throw DataTransferError.noResponse }
+            result[matches[1]] = matches[0]
+        }
+        return result
+    }
+    
+    private func parseNextURL(_ httpResponse: HTTPURLResponse) throws -> String? {
+        guard let serializedLinks = httpResponse.allHeaderFields["Link"] as? String else {
+            return nil
+        }
+        let links = try parseLinks(serializedLinks)
+        guard let nextPageURL = links["next"] else { return nil }
+        return nextPageURL
     }
     
     private func resolve(networkError error: NetworkError) -> DataTransferError {

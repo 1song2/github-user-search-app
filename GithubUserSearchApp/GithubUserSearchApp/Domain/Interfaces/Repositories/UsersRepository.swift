@@ -6,8 +6,8 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol UsersRepository {
-    func fetchUsers(query: String,
-                    completion: @escaping (Result<Users, Error>) -> Void)
+    func fetchUsers(query: String, page: String) -> Observable<(UsersPage, String?)>
 }

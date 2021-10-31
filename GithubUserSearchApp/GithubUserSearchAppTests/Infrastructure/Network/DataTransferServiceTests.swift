@@ -30,7 +30,7 @@ class DataTransferServiceTests: XCTestCase {
         _ = sut.request(with: Endpoint<MockModel>(path: "http://mock.endpoint.com", method: .get)) { result in
             do {
                 let object = try result.get()
-                XCTAssertEqual(object.name, "Hello")
+                XCTAssertEqual(object.0.name, "Hello")
                 expectation.fulfill()
             } catch {
                 XCTFail("Failed decoding MockObject")

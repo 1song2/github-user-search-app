@@ -11,10 +11,9 @@ struct User {
     let id: Int
     let username: String
     let avatarUrl: String
-    let isStarred: Bool = false
+    let isStarred: Bool
 }
 
-struct Users {
-    let totalNumberOfResults: Int
+struct UsersPage {
     let users: [User]
 }
