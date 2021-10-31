@@ -118,7 +118,7 @@ final class DefaultUsersViewModel: UsersViewModel {
             .disposed(by: disposeBag)
     }
     
-    func loadNextPage() {
+    private func loadNextPage() {
         guard !loading.value else { return }
         guard selectedScopeButtonIndex == 0 else { return }
         guard let nextPageURL = nextPageURL else { return }
@@ -167,7 +167,7 @@ extension DefaultUsersViewModel {
     }
     
     func didLoadNextPage() {
-        load(query: searchText)
+        loadNextPage()
     }
     
     func didCancelSearch() {

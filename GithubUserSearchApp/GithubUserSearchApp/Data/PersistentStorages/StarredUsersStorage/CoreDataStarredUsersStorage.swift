@@ -38,7 +38,7 @@ extension CoreDataStarredUsersStorage: StarredUsersStorage {
                 try context.save()
             } catch {
                 // TODO: - Log to Crashlytics
-                debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
+                debugPrint("CoreDataStarredUsersStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
     }
@@ -55,7 +55,7 @@ extension CoreDataStarredUsersStorage: StarredUsersStorage {
                 try context.save()
             } catch {
                 // TODO: - Log to Crashlytics
-                debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
+                debugPrint("CoreDataStarredUsersStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
     }
