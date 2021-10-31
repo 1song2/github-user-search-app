@@ -206,6 +206,7 @@ extension DefaultUsersViewModel {
             } else {
                 starredItems[initialLetter] = [item]
             }
+            filteredItems.onNext(self.starredItems.sorted(by: { $0.key < $1.key }))
             cache.save(item)
         }
     }
