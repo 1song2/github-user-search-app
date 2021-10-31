@@ -13,7 +13,8 @@ protocol UsersViewModelInput {
     func didSearch(query: String)
     func didLoadNextPage()
     func didCancelSearch()
-    func didChangeSegment()
+    func didChangeSegment(_ index: Int)
+    func didStar(_ item: UserViewModel)
 }
 
 protocol UsersViewModelOutput {
@@ -24,8 +25,7 @@ protocol UsersViewModelOutput {
     var error: PublishSubject<String> { get }
     var loading: BehaviorRelay<Bool> { get }
     var nextPageURL: String? { get }
-    var isShowingAll: Bool { get }
-    var isShowingStarred: Bool { get }
+    var selectedScopeButtonIndex: Int { get }
     var screenTitle: String { get }
     var buttonTitles: [String] { get }
     var errorTitle: String { get }
@@ -37,6 +37,7 @@ protocol UsersViewModel: UsersViewModelInput, UsersViewModelOutput {}
 final class DefaultUsersViewModel: UsersViewModel {
     private var disposeBag = DisposeBag()
     private let searchUsersUseCase: SearchUsersUseCase
+    private let cache: StarredUsersStorage
     private var pages: [UsersPage] = []
     
     // MARK: - OUTPUT
@@ -48,10 +49,7 @@ final class DefaultUsersViewModel: UsersViewModel {
     var error: PublishSubject<String> = PublishSubject<String>()
     var loading: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     var nextPageURL: String?
-    var isShowingAll: Bool = true
-    var isShowingStarred: Bool {
-        !isShowingAll
-    }
+    var selectedScopeButtonIndex: Int = 0
     
     let screenTitle = NSLocalizedString("GitHub Users", comment: "")
     let buttonTitles = [NSLocalizedString("All", comment: ""),
@@ -61,8 +59,21 @@ final class DefaultUsersViewModel: UsersViewModel {
     
     // MARK: - Init
     
-    init(searchUsersUseCase: SearchUsersUseCase) {
+    init(searchUsersUseCase: SearchUsersUseCase,
+         cache: StarredUsersStorage) {
         self.searchUsersUseCase = searchUsersUseCase
+        self.cache = cache
+        cache.getStarredUsers { [weak self] result in
+            switch result {
+            case .success(let users):
+                guard let self = self else { return }
+                self.starredItems.accept(Dictionary(grouping: users.map(UserViewModel.init),
+                                                    by: { $0.username.first?.uppercased() ?? "" })
+                )
+            case .failure(let error):
+                self?.handle(error: error)
+            }
+        }
     }
     
     // MARK: - Private
@@ -74,9 +85,7 @@ final class DefaultUsersViewModel: UsersViewModel {
             let userViewModel = UserViewModel(user: user)
             if starredItems.value.values
                 .flatMap({ $0 })
-                .contains(where: { viewModel in
-                viewModel.id == user.id
-            }) {
+                .contains(where: { viewModel in viewModel.id == user.id }) {
                 userViewModel.didStar(true)
             }
             return userViewModel
@@ -111,6 +120,7 @@ final class DefaultUsersViewModel: UsersViewModel {
     
     func loadNextPage() {
         guard !loading.value else { return }
+        guard selectedScopeButtonIndex == 0 else { return }
         guard let nextPageURL = nextPageURL else { return }
         guard let urlComponents = URLComponents(string: nextPageURL) else {return }
         searchText = urlComponents.queryItems?.first { $0.name == "q" }?.value ?? ""
@@ -164,12 +174,21 @@ extension DefaultUsersViewModel {
         disposeBag = DisposeBag()
     }
     
-    func didChangeSegment() {
-        if isShowingAll {
-            guard !searchText.isEmpty else { return }
-            update(query: searchText)
+    func didChangeSegment(_ index: Int) {
+        selectedScopeButtonIndex = index
+    }
+    
+    func didStar(_ item: UserViewModel) {
+        var newItems = starredItems.value
+        if (newItems.filter { $0.value.contains(item) }.count > 0) {
+            cache.remove(item)
+            guard let index = newItems[item.username.first?.uppercased() ?? ""]?.firstIndex(of: item) else { return }
+            newItems[item.username.first?.uppercased() ?? ""]?.remove(at: index)
+            starredItems.accept(newItems)
         } else {
-            // Caching
+            newItems[item.username.first?.uppercased() ?? ""]?.append(item)
+            starredItems.accept(newItems)
+            cache.save(item)
         }
     }
 }

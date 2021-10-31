@@ -26,10 +26,14 @@
 		E4562DC5272C0B520022CBBE /* LimitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DC4272C0B520022CBBE /* LimitError.swift */; };
 		E4562DCA272C0BB20022CBBE /* DataTransferError+ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DC9272C0BB20022CBBE /* DataTransferError+ConnectionError.swift */; };
 		E4562DCC272C0BE00022CBBE /* DataTransferError+LimitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DCB272C0BE00022CBBE /* DataTransferError+LimitError.swift */; };
+		E4562DCF272C1F2A0022CBBE /* CoreDataStarredUsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DCE272C1F2A0022CBBE /* CoreDataStarredUsersStorage.swift */; };
+		E4562DD1272C1F750022CBBE /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DD0272C1F750022CBBE /* CoreDataStorage.swift */; };
+		E4562DD3272C20770022CBBE /* StarredUsersEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DD2272C20770022CBBE /* StarredUsersEntity+Mapping.swift */; };
+		E4562DD6272C29670022CBBE /* StarredUsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4562DD5272C29670022CBBE /* StarredUsersStorage.swift */; };
+		E4575DB1272D06C5005DB86F /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4575DAF272D06C5005DB86F /* CoreDataStorage.xcdatamodeld */; };
 		E4AC82ED272A428D00037243 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC82EC272A428D00037243 /* UsersViewModel.swift */; };
 		E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960A2722E18500AE0796 /* AppDelegate.swift */; };
 		E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6960E2722E18500AE0796 /* UserViewController.swift */; };
-		E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */; };
 		E4C696172722E18700AE0796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C696162722E18700AE0796 /* Assets.xcassets */; };
 		E4C6961A2722E18700AE0796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C696182722E18700AE0796 /* LaunchScreen.storyboard */; };
 		E4C6962F2722E18700AE0796 /* GithubUserSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6962E2722E18700AE0796 /* GithubUserSearchAppUITests.swift */; };
@@ -92,11 +96,15 @@
 		E4562DC4272C0B520022CBBE /* LimitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitError.swift; sourceTree = "<group>"; };
 		E4562DC9272C0BB20022CBBE /* DataTransferError+ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTransferError+ConnectionError.swift"; sourceTree = "<group>"; };
 		E4562DCB272C0BE00022CBBE /* DataTransferError+LimitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTransferError+LimitError.swift"; sourceTree = "<group>"; };
+		E4562DCE272C1F2A0022CBBE /* CoreDataStarredUsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStarredUsersStorage.swift; sourceTree = "<group>"; };
+		E4562DD0272C1F750022CBBE /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		E4562DD2272C20770022CBBE /* StarredUsersEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarredUsersEntity+Mapping.swift"; sourceTree = "<group>"; };
+		E4562DD5272C29670022CBBE /* StarredUsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredUsersStorage.swift; sourceTree = "<group>"; };
+		E4575DB0272D06C5005DB86F /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		E4AC82EC272A428D00037243 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		E4C696072722E18500AE0796 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C6960A2722E18500AE0796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4C6960E2722E18500AE0796 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		E4C696142722E18500AE0796 /* GithubUserSearchApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubUserSearchApp.xcdatamodel; sourceTree = "<group>"; };
 		E4C696162722E18700AE0796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4C696192722E18700AE0796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4C6961B2722E18700AE0796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -289,6 +297,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E4562DCD272C1EFF0022CBBE /* StarredUsersStorage */ = {
+			isa = PBXGroup;
+			children = (
+				E4562DD5272C29670022CBBE /* StarredUsersStorage.swift */,
+				E4562DCE272C1F2A0022CBBE /* CoreDataStarredUsersStorage.swift */,
+				E4562DD4272C208A0022CBBE /* EntityMapping */,
+			);
+			path = StarredUsersStorage;
+			sourceTree = "<group>";
+		};
+		E4562DD4272C208A0022CBBE /* EntityMapping */ = {
+			isa = PBXGroup;
+			children = (
+				E4562DD2272C20770022CBBE /* StarredUsersEntity+Mapping.swift */,
+			);
+			path = EntityMapping;
+			sourceTree = "<group>";
+		};
 		E4C695FE2722E18500AE0796 = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +409,7 @@
 		E4C696422724475200AE0796 /* PersistentStorages */ = {
 			isa = PBXGroup;
 			children = (
+				E4562DCD272C1EFF0022CBBE /* StarredUsersStorage */,
 				E4C696432724476E00AE0796 /* CoreDataStorage */,
 			);
 			path = PersistentStorages;
@@ -391,7 +418,8 @@
 		E4C696432724476E00AE0796 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
-				E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */,
+				E4562DD0272C1F750022CBBE /* CoreDataStorage.swift */,
+				E4575DAF272D06C5005DB86F /* CoreDataStorage.xcdatamodeld */,
 			);
 			path = CoreDataStorage;
 			sourceTree = "<group>";
@@ -684,19 +712,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4562DCA272C0BB20022CBBE /* DataTransferError+ConnectionError.swift in Sources */,
+				E4562DCF272C1F2A0022CBBE /* CoreDataStarredUsersStorage.swift in Sources */,
 				E42E5F4F2726565C00857B72 /* UserCell.swift in Sources */,
+				E4562DD6272C29670022CBBE /* StarredUsersStorage.swift in Sources */,
 				E4C6960F2722E18500AE0796 /* UserViewController.swift in Sources */,
 				E42E5F6D27266DAF00857B72 /* AvatarImagesRepository.swift in Sources */,
 				E4562DC5272C0B520022CBBE /* LimitError.swift in Sources */,
+				E4575DB1272D06C5005DB86F /* CoreDataStorage.xcdatamodeld in Sources */,
 				E42E5F762726758800857B72 /* SearchUsersUseCase.swift in Sources */,
 				E4C696742725404500AE0796 /* NetworkConfig.swift in Sources */,
 				E42E5F6727266AFF00857B72 /* APIEndpoints.swift in Sources */,
 				E4C6960B2722E18500AE0796 /* AppDelegate.swift in Sources */,
 				E4562DCC272C0BE00022CBBE /* DataTransferError+LimitError.swift in Sources */,
-				E4C696152722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld in Sources */,
 				E4AC82ED272A428D00037243 /* UsersViewModel.swift in Sources */,
 				E42E5F52272661F900857B72 /* User.swift in Sources */,
 				E4C6967C27254B9700AE0796 /* DataTransferService.swift in Sources */,
+				E4562DD1272C1F750022CBBE /* CoreDataStorage.swift in Sources */,
 				E4562DC3272C0B050022CBBE /* ConnectionError.swift in Sources */,
 				E42E5F6927266C6800857B72 /* UsersRepository.swift in Sources */,
 				E4C69678272541B900AE0796 /* Endpoint.swift in Sources */,
@@ -705,6 +736,7 @@
 				E4C6967A272549A900AE0796 /* NetworkService.swift in Sources */,
 				E42E5F7127266F4500857B72 /* DefaultUsersRepository.swift in Sources */,
 				E42E5F742726732500857B72 /* DefaultAvatarImagesRepository.swift in Sources */,
+				E4562DD3272C20770022CBBE /* StarredUsersEntity+Mapping.swift in Sources */,
 				E42E5F612726660100857B72 /* UsersRequestDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1080,13 +1112,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E4C696132722E18500AE0796 /* GithubUserSearchApp.xcdatamodeld */ = {
+		E4575DAF272D06C5005DB86F /* CoreDataStorage.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E4C696142722E18500AE0796 /* GithubUserSearchApp.xcdatamodel */,
+				E4575DB0272D06C5005DB86F /* CoreDataStorage.xcdatamodel */,
 			);
-			currentVersion = E4C696142722E18500AE0796 /* GithubUserSearchApp.xcdatamodel */;
-			path = GithubUserSearchApp.xcdatamodeld;
+			currentVersion = E4575DB0272D06C5005DB86F /* CoreDataStorage.xcdatamodel */;
+			path = CoreDataStorage.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
