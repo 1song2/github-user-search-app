@@ -24,7 +24,7 @@ class NetworkServiceTests: XCTestCase {
                 XCTFail("Should return proper response")
                 return
             }
-            XCTAssertEqual(responseData, expectedResponseData)
+            XCTAssertEqual(responseData.data, expectedResponseData)
             expectation.fulfill()
         }
         //then
