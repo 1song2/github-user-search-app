@@ -164,8 +164,19 @@ final class DefaultUsersViewModel: UsersViewModel {
 
 extension DefaultUsersViewModel {
     func didSearch(query: String) {
-        guard !query.isEmpty else { return }
-        update(query: query)
+        if selectedScopeButtonIndex == 0 {
+            guard !query.isEmpty else { return }
+            update(query: query)
+        } else {
+            if query.isEmpty {
+                filteredItems.onNext(starredItems.sorted(by: { $0.key < $1.key }))
+            } else {
+                let filteredArray = starredItems.values.flatMap { $0 }
+                    .filter { $0.username.uppercased().contains(query.uppercased()) }
+                let filteredDict = Dictionary(grouping: filteredArray, by: { $0.username.first?.uppercased() ?? "" })
+                filteredItems.onNext(filteredDict.sorted(by: { $0.key < $1.key }))
+            }
+        }
     }
     
     func didLoadNextPage() {
@@ -178,18 +189,23 @@ extension DefaultUsersViewModel {
     
     func didChangeSegment(_ index: Int) {
         selectedScopeButtonIndex = index
+        if selectedScopeButtonIndex == 0 {
+            filteredItems.onNext(self.starredItems.sorted(by: { $0.key < $1.key }))
+        }
     }
     
     func didStar(_ item: UserViewModel) {
-        var newItems = starredItems.value
-        if (newItems.filter { $0.value.contains(item) }.count > 0) {
+        guard let initialLetter = item.username.first?.uppercased() else { return }
+        if (starredItems.filter { $0.value.contains(item) }.count > 0) {
             cache.remove(item)
-            guard let index = newItems[item.username.first?.uppercased() ?? ""]?.firstIndex(of: item) else { return }
-            newItems[item.username.first?.uppercased() ?? ""]?.remove(at: index)
-            starredItems.accept(newItems)
+            guard let index = starredItems[initialLetter]?.firstIndex(of: item) else { return }
+            starredItems[initialLetter]?.remove(at: index)
         } else {
-            newItems[item.username.first?.uppercased() ?? ""]?.append(item)
-            starredItems.accept(newItems)
+            if starredItems[initialLetter] != nil {
+                starredItems[initialLetter]!.append(item)
+            } else {
+                starredItems[initialLetter] = [item]
+            }
             cache.save(item)
         }
     }
