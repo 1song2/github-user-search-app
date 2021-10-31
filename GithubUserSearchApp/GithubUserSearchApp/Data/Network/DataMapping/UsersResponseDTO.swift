@@ -41,6 +41,7 @@ extension UsersResponseDTO.UserDTO {
     func toDomain() -> User {
         return .init(id: id,
                      username: username,
-                     avatarUrl: avatarUrl)
+                     avatarUrl: avatarUrl,
+                     isStarred: false)
     }
 }
