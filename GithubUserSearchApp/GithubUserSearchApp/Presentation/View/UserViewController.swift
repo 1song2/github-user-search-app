@@ -31,6 +31,7 @@ class UserViewController: UITableViewController {
     }
     
     private func setupSearchController() {
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.showsScopeBar = true
@@ -39,12 +40,16 @@ class UserViewController: UITableViewController {
     }
 }
 
-//MARK: - UITableViewDataSource
-extension UserViewController {
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseIdentifier, for: indexPath) as? UserCell else {
-            return UITableViewCell()
-        }
-        return cell
+// MARK: - UISearchBarDelegate
+
+extension UserViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        searchController.isActive = false
+        viewModel.didSearch(query: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.didCancelSearch()
     }
 }
